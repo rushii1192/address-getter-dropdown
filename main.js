@@ -1,21 +1,29 @@
-function appendCity(item){
-    $("#city").append('<option value='+item.id+'>'+item.name+'</option>');
-}
-function appendState(item){
-    $("#country").append('<option value='+item.id+'>'+item.name+'</option>');
-}
-function appendCountry(item){
-    $("#country").append('<option value='+item.id+'>'+item.name+'</option>');
-}
+
 async function appendAddressData() {
     const response = await fetch('http://127.0.0.1:5500/data/city-data-min.json');
     const data = await response.json();
-    // for(var city=0;city<data.cities.length;city++){
-    //     $("#service_area").append('<option>'+city+'</option>')
-    // }
-    data.forEach(appendCountry);
-    data[1].states.forEach(appendState);
-    data[0].states[0].cities.forEach(appendCity);
+
+    var selected_country = $('#country').find(":selected").text();
+    var selected_state = $('#state').find(":selected").text();
+
+    $("#state").empty();
+    $("#city").empty();
+    
+    for(var country_counter=0;country_counter<data.length;country_counter++){
+        $("#country").append('<option value='+data[country_counter].id+'>'+data[country_counter].name+'</option>');
+        if(data[country_counter].name == selected_country){
+            for(var state_counter=0;state_counter<data[country_counter].states.length;state_counter++){
+                $("#state").append('<option value='+data[country_counter].states[state_counter].id+'>'+data[country_counter].states[state_counter].name+'</option>');
+                if(data[country_counter].states[state_counter].name==selected_state){
+                    for(var city_counter=0;city_counter<data[country_counter].states[state_counter].cities.length;city_counter++){
+                        $("#city").append('<option value='+data[country_counter].states[state_counter].cities[city_counter].id+'>'+data[country_counter].states[state_counter].cities[city_counter].name+'</option>');
+                    }
+                    break;
+                }
+            }
+            break;
+        } 
+    }
 }
 $( document ).ready(function() {
     $("#country").change(appendAddressData);
