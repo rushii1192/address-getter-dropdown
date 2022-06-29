@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <select class="form-select" aria-label="Default select example" id="country">
             <option value="NULL">Select your country</option>
         </select>
@@ -20,6 +20,45 @@
         <select class="form-select" aria-label="Default select example" id="city">
             <option value="NULL">Select your city</option>
         </select>
+    </div> -->
+    <div class="row d-flex justify-content-center align-items-center my-3">
+        <div class="col-9 my-2 shadow p-3 mb-5 bg-body rounded">
+            <div class="row">
+                <div class="col-6">
+                    <img src="https://mdbcdn.b-cdn.net/img/Others/extended-example/delivery.webp" alt="Sample photo"
+                    class="img-fluid" />
+                </div>
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="addressLine1" class="form-label"><h4>Address Line 1</h4></label>
+                        <input type="text" class="form-control" id="addressLine1" placeholder="Enter your Address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="addressLine2" class="form-label"><h4>Address Line 2</h4></label>
+                        <input type="text" class="form-control" id="addressLine2" placeholder="Enter your Address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label"><h4>Country</h4></label>
+                        <select class="form-select" aria-label="Default select example" id="country">
+                            <option value="NULL">Select your country</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="state" class="form-label"><h4>State</h4></label>
+                        <select class="form-select" aria-label="Default select example" id="state">
+                            <option value="NULL">Select your state</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label"><h4>City</h4></label>
+                        <select class="form-select" aria-label="Default select example" id="city">
+                            <option value="NULL">Select your city</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="showDetails()">Primary</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
